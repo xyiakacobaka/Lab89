@@ -53,10 +53,10 @@ abstract class Computer
         Price = 0;
         Weight = 0;
     }
+    public abstract double Descont(int Price);//Скидка
+    public abstract string Information(); //информация
     public string ToString()
     {
-        return Serial+" "+Model+""+Manufacturer+" "+ContryManufacturer;
+        return Serial + " " + Model + " " + Manufacturer + " " + ContryManufacturer;
     }
-    public abstract void Descont();//Скидка
-    public abstract void Information(); //информация
 }

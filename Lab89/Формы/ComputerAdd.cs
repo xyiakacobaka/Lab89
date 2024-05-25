@@ -11,9 +11,9 @@ using static System.Windows.Forms.DataFormats;
 
 namespace Lab89
 {
-    public partial class LaptopAdd : Form
+    public partial class ComputerAdd : Form
     {
-        public LaptopAdd()
+        public ComputerAdd()
         {
             InitializeComponent();
         }
@@ -27,13 +27,9 @@ namespace Lab89
             new Laptop(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
                 textBox5.Text, textBox6.Text, comboBox1.Text, comboBox2.Text);
             form1 = Application.OpenForms[0];
+            Form1.Switcher = true;
             form1.Show();
             this.Close();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

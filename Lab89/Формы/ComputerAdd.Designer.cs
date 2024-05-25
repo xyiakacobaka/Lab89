@@ -1,6 +1,6 @@
 ﻿namespace Lab89
 {
-    partial class LaptopAdd
+    partial class ComputerAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -166,7 +166,6 @@
             comboBox1.Size = new Size(158, 29);
             comboBox1.TabIndex = 22;
             comboBox1.Text = "Отсутсвует";
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // comboBox2
             // 

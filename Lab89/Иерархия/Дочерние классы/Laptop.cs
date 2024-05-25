@@ -11,21 +11,26 @@ internal class Laptop : Computer
 {
     public bool Upgrade {  get; set; }//Возможность замены видеокарты
     public bool Mobility { get; set; }
-    public override void Information()
+    public override string Information()
     {
-        MessageBox.Show($"Информация о товаре:" +
-                        $"Производитель - {Manufacturer}\n " +
-                        $"Страна изготовления - {ContryManufacturer}\n" +
-                        $"Цена - {Price}\n" +
-                        $"Вес - {Weight}\n");
+        return( $"Серия - {Serial}\n" +
+                $"Модель - {Model}\n" +
+                $"Производитель - {Manufacturer}\n" +
+                $"Страна изготовления - {ContryManufacturer}\n" +
+                $"Цена - {Price}\n" +
+                $"Вес - {Weight}\n" +
+                $"Возможность улучшения - {Upgrade}\n" +
+                $"Мобильность - {Mobility}\n" +
+                $"Цена с учетом скидки - {Descont(this.Price)}р\n");
     }
-    public override void Descont()
+    public override double Descont(int Price)
     {
-        MessageBox.Show($"Цена с учетом скидки - {this.Price / (1 - (10 / 100))}");
+        double i = (1 - (10.0 / 100.0));
+        return (Price * i);
     }
     public string ToString()
     {
-        return Serial+" "+Model+" "+Manufacturer+" "+ContryManufacturer+" "+Price+" "+Weight+" "+Upgrade+" "+Mobility;
+        return Serial+";"+Model+";"+Manufacturer+";"+ContryManufacturer+";"+Price+";"+Weight+";"+Upgrade+";"+Mobility;
     }
     public Laptop()
     {
@@ -56,15 +61,14 @@ internal class Laptop : Computer
                 this.ContryManufacturer = ContryManufacturer;//3
                 this.Price = Int32.Parse(Price);//4
                 this.Weight = Int32.Parse(Weight);//5
-                if (Upgrade == "Присутствует")
+                if (Upgrade == "True")
                     this.Upgrade = true;
                 else
                     this.Upgrade = false;
-                if (Mobility == "Присутствует")
+                if (Mobility == "True")
                     this.Mobility = true;
                 else
                     this.Mobility = false;
-                Form1.computers.Add(this);
                 Form1.laptops.Add(this);
             }
             else

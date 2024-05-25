@@ -1,4 +1,4 @@
-﻿
+﻿using Lab89;
 using System.Text.RegularExpressions;
 
 internal class PersonalComputer : Computer
@@ -40,6 +40,7 @@ internal class PersonalComputer : Computer
                 this.Price = Int32.Parse(Price);
                 this.Weight = Int32.Parse(Weight);
                 this.Type = Type;
+                Form1.personalComputers.Add(this);
             }
             else
                 throw new ArithmeticException("Поля содержат цифры или знак # или знак !");
@@ -53,17 +54,24 @@ internal class PersonalComputer : Computer
             throw new FormatException("Проверьте поле \"Цена\" и поле \"Вес\"");
         }
     }
-    public override void Descont()
+    public override double Descont(int Price)
     {
-        MessageBox.Show($"Цена с учетом скидки - {this.Price / (1 - (15 / 100))}");
+        double i = (1 - (15.0 / 100.0));
+        return (Price * i);
     }
-    public override void Information()
+    public override string Information()
     {
-        MessageBox.Show($"Информация о товаре: " +
-            $"Производитель - {Manufacturer} \n " +
-            $"Страна изготовления - {ContryManufacturer} " +
-            $"Цена - {Price} " +
-            $"Вес - {Weight}" +
-            $"Цена с учетом скидки - {Descont}");
+        return( $"Серия - {Serial}\n" +
+                $"Модель - {Model}\n" +
+                $"Производитель - {Manufacturer}\n" +
+                $"Страна изготовления - {ContryManufacturer}\n" +
+                $"Цена - {Price}\n" +
+                $"Вес - {Weight}\n" +
+                $"Цена с учетом скидки - {Descont(this.Price)}р\n");
+    }
+    public string ToString()
+    {
+        return Serial + ";" + Model + ";" + Manufacturer + ";" + ContryManufacturer + ";" + 
+            Price + ";" + Weight + ";" + Type;
     }
 }
