@@ -1,7 +1,8 @@
 ﻿using Lab89;
 using System.Text.RegularExpressions;
 
-internal class PersonalComputer : Computer
+[Serializable]
+public class PersonalComputer : Computer
 {
     private string type;
     public string Type
@@ -22,7 +23,8 @@ internal class PersonalComputer : Computer
         Weight = 0;
         Type = "";
     }
-    public PersonalComputer(string Serial, string Model, string Manufacturer, string ContryManufacturer, string Price, string Weight, string Type)
+    public PersonalComputer(string Serial, string Model, string Manufacturer, 
+        string ContryManufacturer, string Price, string Weight, string Type)
     {
         if (Serial == "" || Model == "" || Manufacturer == "" || ContryManufacturer == "" || Price == "" || Weight == "" || Type == "")
         {

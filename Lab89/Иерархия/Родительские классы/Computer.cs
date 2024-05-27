@@ -5,7 +5,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-abstract class Computer
+[Serializable]
+public abstract class Computer
 {
     protected private Regex r = new Regex(@"[\d!#]");
     private string serial;

@@ -7,7 +7,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-internal class Laptop : Computer
+[Serializable]
+public class Laptop : Computer
 {
     public bool Upgrade {  get; set; }//Возможность замены видеокарты
     public bool Mobility { get; set; }
@@ -30,7 +31,8 @@ internal class Laptop : Computer
     }
     public string ToString()
     {
-        return Serial+";"+Model+";"+Manufacturer+";"+ContryManufacturer+";"+Price+";"+Weight+";"+Upgrade+";"+Mobility;
+        return Serial+";"+Model+";"+Manufacturer+";"+ContryManufacturer+
+            ";"+Price+";"+Weight+";"+Upgrade+";"+Mobility;
     }
     public Laptop()
     {
